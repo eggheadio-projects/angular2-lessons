@@ -1,4 +1,6 @@
-import {Component, trigger, state, style, transition, animate} from "@angular/core";
+import {Component} from "@angular/core";
+import { trigger, state, style, transition, animate} from "@angular/animations";
+
 @Component({
     selector: 'app',
     animations:[
