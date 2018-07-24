@@ -13,7 +13,7 @@ import {Component} from "@angular/core";
         <input 
             [attr.id]="location"
             name="location"
-            [ngModel]="locations[0]"
+            ngModel
             [value]="location"
             type="radio"
             required
