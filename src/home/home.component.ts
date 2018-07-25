@@ -1,27 +1,27 @@
-import {Component, ViewChild, ViewContainerRef, ComponentFactoryResolver} from "@angular/core";
-import {WidgetThree} from "../widgets/widget-three.component";
+import { Component, ViewChild, ViewContainerRef, ComponentFactoryResolver } from "@angular/core";
+import { WidgetThree } from "../widgets/widget-three.component";
 @Component({
     selector: 'home',
     template: `
 <button (click)="onClick()">Create Template</button>
 <div #container></div>
 
-<template #template let-description="description">
+<ng-template #template let-description="description">
     <h2>My {{description}} template</h2>
     <button>My {{description}} button</button>
-</template>
+</ng-template>
 `
 })
-export class HomeComponent{
-    @ViewChild('container', {read:ViewContainerRef}) container;
+export class HomeComponent {
+    @ViewChild('container', { read: ViewContainerRef }) container;
 
     @ViewChild('template') template;
 
     widgetRef;
 
-    constructor(private resolver:ComponentFactoryResolver){}
+    constructor(private resolver: ComponentFactoryResolver) { }
 
-    ngAfterContentInit(){
+    ngAfterContentInit() {
         const widgetFactory = this.resolver
             .resolveComponentFactory(WidgetThree);
 
@@ -40,7 +40,7 @@ export class HomeComponent{
         this.widgetRef.instance.message = "I'm third";
     }
 
-    onClick(){
+    onClick() {
         this.container.createEmbeddedView(this.template, {
             description: 'sweet'
         });
